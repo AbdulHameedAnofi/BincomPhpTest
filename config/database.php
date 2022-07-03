@@ -2,6 +2,13 @@
 
 use Illuminate\Support\Str;
 
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+$host = $url['host'];
+$username = $url['user'];
+$password = $url['pass'];
+$database = substr($url['path'], 1);
+
 return [
 
     /*
@@ -15,7 +22,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'bitcim_heroku_interview'),
 
     /*
     |--------------------------------------------------------------------------
@@ -61,6 +68,17 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+        ],
+
+        'bitcim_heroku_interview' => [
+            'driver' => 'mysql',
+            'host' => $host,
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
         ],
 
         'pgsql' => [
