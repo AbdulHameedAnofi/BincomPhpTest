@@ -2,7 +2,7 @@
 
 @section('content')
     <h2>Polling Unit Results</h2><br>
-    <form action="/pollingUnitResults" method="post">
+    <form action="/pollingUnit" method="post">
         @csrf
         <input type="text" name="polling_unit" list="value" placeholder="Select or Input Polling Unit">
         <datalist id="value">

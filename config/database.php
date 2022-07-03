@@ -22,7 +22,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'bitcim_heroku_interview'),
+    'default' => env('DB_CONNECTION', 'bincom_heroku_interview'),
 
     /*
     |--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ return [
             ]) : [],
         ],
 
-        'bitcim_heroku_interview' => [
+        'bincom_heroku_interview' => [
             'driver' => 'mysql',
             'host' => $host,
             'database' => $database,
